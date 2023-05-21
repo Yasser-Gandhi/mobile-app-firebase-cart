@@ -17,9 +17,10 @@ const shoppingListEl = document.getElementById("shopping-list")
 addButtonEl.addEventListener("click", function() {
     let inputValue = inputFieldEl.value
     
-    push(shoppingListInDB, inputValue)
-    
-    clearInputFieldEl()
+    if (inputValue.trim() !== "") { // Verifica si el campo no está vacío ni contiene solo espacios en blanco
+        push(shoppingListInDB, inputValue)
+        clearInputFieldEl()
+    }
 })
 
 onValue(shoppingListInDB, function(snapshot) {
@@ -36,7 +37,7 @@ onValue(shoppingListInDB, function(snapshot) {
             appendItemToShoppingListEl(currentItem)
         }    
     } else {
-        shoppingListEl.innerHTML = "No items here... yet"
+        let container = document.getElementById("error-mensaje").appendChild(document.createElement("h4")).textContent = "Nada que comprar";
     }
 })
 
