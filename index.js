@@ -37,7 +37,7 @@ onValue(shoppingListInDB, function(snapshot) {
             appendItemToShoppingListEl(currentItem)
         }    
     } else {
-        let container = document.getElementById("error-mensaje").appendChild(document.createElement("h4")).textContent = "Nada que comprar";
+        let container = document.getElementById("error-mensaje").appendChild(document.createElement("h4")).textContent = "Nada que comprar 🐶";
     }
 })
 
